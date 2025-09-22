@@ -1,0 +1,191 @@
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+   background-color: rgb(244, 244, 244);
+}
+
+footer{
+  background-color: #007aff;
+}
+
+header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.left-section{
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.header-title{
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-icon{
+  width: 200px;
+  height: 100px;
+}
+
+.search-icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 1;
+  top: 10;
+  right: 45px;
+}
+
+#search-bar{
+  height: 38px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: relative;
+  z-index: 0;
+}
+
+.main{
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 50px;
+  align-items:center;
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-info{
+  color: #054E66;
+  font-weight: bold;
+}
+
+.nav-col {
+  height: 50px;
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  margin-left: 20px;
+  padding: 2px 15px;
+  background-color: #cce648;
+  border-radius: 25px;
+  transition: all 0.1s ease-in-out;
+}
+
+.nav-col:hover {
+  background-color: #9db620;
+}
+
+.nav-col:active {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.9);
+}
+
+.nav-icons{
+  width: 25px;
+  height: 25px;
+}
+
+.main-sec{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  justify-content:space-between;
+}
+
+.totals{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.totals-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  border-radius: 10px;
+  background-color: white;
+  color: #054E66;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.tenant-info{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  border-radius: 8px;
+  border-bottom: none;
+}
+
+.tenant-info-data{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.tenants-details{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+}
+
+.notice{
+  margin-top: 30px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.notice-image{
+  width: 64px;
+  height: 64px;
+}
+
+.notice-text{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footer{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer p{
+ font-weight: bold;
+ color: white;
+ font-size: 40px;
+}
