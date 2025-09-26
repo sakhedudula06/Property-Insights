@@ -192,7 +192,7 @@ header{
 }
 
 #myChart{
-  width: 1000px;
+  max-height: 400px;
 }
 
 .main-login{
@@ -273,3 +273,17 @@ header{
 .forgot-password:active{
   font-size: large;
 }
+
+.h1{
+  text-align: center;
+}
+
+.charts{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+

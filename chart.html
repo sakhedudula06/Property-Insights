@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Property Insights</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/styles/style.css">
   <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
 </head>
 <body>
@@ -22,6 +22,10 @@
       <img src="images/icons8-search-50.png" class="search-icon">
     </div>
   </header>
+
+  <div>
+      <h1 class="h1">2024 Stats</h1>
+  </div>
 
   <main class="main">
     <div class="nav">
@@ -50,9 +54,30 @@
     </div>
 
     <div class="main-sec">
-      <canvas id="myChart" style="width:100%;max-width:1400px"></canvas>
+      <canvas id="myChart"></canvas>
     </div>
   </main>
+
+  <div class="charts">
+    <div class="second-chart">
+      <canvas id="myChart2"></canvas>
+    </div>
+
+    <div class="second-chart">
+      <canvas id="myChart3"></canvas>
+    </div>
+  </div>
+
+  <div class="charts">
+    <div class="second-chart">
+      <canvas id="myChart4"></canvas>
+    </div>
+
+    <div class="second-chart">
+      <canvas id="myChart5"></canvas>
+    </div>
+  </div>
+  
 
 
   <footer class="footer">
@@ -62,6 +87,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script>
+
+  //Second Chart
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
@@ -70,7 +97,7 @@
       labels: ['January', 'Fabruary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       datasets: [{
         label: 'Payments of Tenents',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [12, 19, 18, 18, 19, 15, 17, 18, 20, 19],
         borderWidth: 1
       }]
     },
@@ -82,6 +109,63 @@
       }
     }
   });
+
+  //Second Chart
+  const secondChart = document.getElementById('myChart2');
+
+  new Chart(secondChart, {
+    type: 'bar',
+    data: {
+      labels: ['January', 'Fabruary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      datasets: [{
+        label: 'Sum of Payments',
+        data: [90000, 143500, 136000, 136000, 143500, 113500, 128000, 136000, 150000, 143500],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+        ],
+        borderWidth: 1 
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  
+  //Second Chart
+  const thirdChart = document.getElementById('myChart3');
+
+  new Chart(thirdChart,{
+    type: 'pie',
+    data: {
+      labels: ['Male', 'Female', 'Other'],
+      datasets: [{
+        label: 'Gender',
+        data: [8, 9,3],
+        backgroundColor: [
+      'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)'
+    ],hoverOffset: 3,
+
+      }]
+    }
+  });
+
 </script>
 </body>
 </html>
