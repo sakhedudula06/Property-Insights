@@ -57,16 +57,16 @@
 
     <div class="main-sec">
       <div class="totals">
-        <div class="totals-info">
-          <p>12</p>
+        <div class="totals-info" >
+          <p id="total-tenants"></p>
           <p>Total Paid Tenants</p>
         </div>
         <div class="totals-info">
-          <p>3</p>
+          <p id="late-payments"></p>
           <p>Late Payments</p>
         </div>
         <div class="totals-info">
-          <p>R50 000</p>
+          <p id="total-payments"></p>
           <p>Total Rent Collected This Month</p>
         </div>
       </div>
@@ -93,13 +93,13 @@
 
         <div class="tenant-info-data">
           <div class="tenants-details">
-            <p>Sakhekile Dudula</p>
+            <p class="tenant-info-name"></p>
           </div>
           <div class="tenants-details">
-            <p>A101</p>
+            <p class="unit-name"></p>
           </div>
           <div class="tenants-details">
-            <p>01 Sep 2025</p>
+            <p class="rent-due-date">01 Sep 2025</p>
           </div>
           <div class="tenants-details">
             <p>Paid</p>
@@ -178,5 +178,50 @@
   </footer>
 
   <script src="/scripts/login.js"></script>
+  <script>
+
+
+    const tenantsData = {
+      "tenants": [
+        { "tenantName": "Sakhekile Dudula", "Unit": "A101", "rentDueDate": "01 Sep 2025", "status": "Paid", "amountDue": "R8000"},
+        { "tenantName": "John Smith", "Unit": "B202", "rentDueDate": "01 Sep 2025", "status": "Paid", "amountDue": "R8000"},
+        { "tenantName": "Sarah Lee", "Unit": "C303", "rentDueDate": "05 Sep 2025", "status": "Late", "amountDue": "R7500"},
+        { "tenantName": "Ahmed Khan", "Unit": "D404", "rentDueDate": "10 Sep 2025", "status": "Pending", "amountDue": "R6500"}
+      ]
+    };
+
+    // Displaying the first tenant's info as an example
+    const tName = document.querySelector('.tenant-info-name');
+    const firstTenantName = tenantsData.tenants[0].tenantName;
+    tName.textContent = firstTenantName;
+
+    const unitName = document.querySelector('.unit-name');
+    const firstUnitName = tenantsData.tenants[0].Unit;
+    unitName.textContent = firstUnitName;
+
+    const rentDueDate = document.querySelector('.rent-due-date');
+    const firstRentDueDate = tenantsData.tenants[0].rentDueDate;
+    rentDueDate.textContent = firstRentDueDate;
+
+    const totTents = document.getElementById('total-tenants');
+    totTents.textContent = tenantsData.tenants.length;
+
+    const latePays = document.getElementById('late-payments');
+    latePays.textContent = tenantsData.tenants.filter(tenant => tenant.status.toLowerCase() === 'late').length;
+
+    const totalPayments = document.getElementById('total-payments');
+    totalPayments.textContent = tenantsData.tenants.reduce((total, tenant) => {
+      const amount = parseInt(tenant.amountDue.replace('R', '').replace(',', ''));
+      return total + amount;
+    }, 0);
+
+    /*
+    function findData(){
+      if(){}
+    };
+    */
+
+    
+  </script>
 </body>
 </html>

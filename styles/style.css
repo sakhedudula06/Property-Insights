@@ -287,3 +287,7 @@ header{
   margin-top: 50px;
 }
 
+.form-columns{
+  width: 300px;
+  height: 40px;
+}
