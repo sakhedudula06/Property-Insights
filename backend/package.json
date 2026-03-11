@@ -12,15 +12,19 @@
   },
   "license": "ISC",
   "author": "Sakhekile",
-  "type": "commonjs",
-  "main": "../index.js",
+  "type": "module",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",
     "dotenv": "^17.2.4",
-    "mongoose": "^9.2.0"
+    "express": "^5.2.1",
+    "mongoose": "^9.2.0",
+    "nodemon": "^3.1.14",
+    "postgres": "^3.4.8"
   },
   "keywords": []
 }
