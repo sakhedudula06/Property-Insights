@@ -1,4 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
 
-const supabase = createClient(processLock.env.DB_URL, processLock.env.public_anonkey)
+const supabase = createClient(process.env.DB_URL, process.env.public_anonkey)
+
+export default supabase
