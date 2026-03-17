@@ -1,9 +1,13 @@
 import dotenv from "dotenv";
-import app from "./app.js";
 
 dotenv.config({
   path: "./.env",
 });
+
+console.log("DB_URL:", process.env.DB_URL);
+console.log("public_anonkey:", process.env.public_anonkey); 
+
+import app from "./app.js";
 
 const startServer = async () => {
   try {
