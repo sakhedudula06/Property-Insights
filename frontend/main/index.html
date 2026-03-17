@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Insights</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="icon" type="image/png" href="/images/favicon-32x32.png">
+</head>
+<body>
+  <header>
+    <div class="left-section">
+      <a href="home.html">
+        <img src="images/MRI_Software_logo.svg" class="logo-icon">
+      </a>
+      
+      <p class="header-title">Tenant Payment Tracker</p>
+    </div>
+  </header>
+
+  <main class="main-part">
+    <div class="main-login">
+      <form id="loginForm" class="form">
+        <div class="user-details">
+          <img class="login-icons" src="images/icons8-user-25.png">
+          <input type="text" name="username" id="username" placeholder="Username or Email">
+        </div>
+
+        <div class="user-details">
+          <img class="login-icons" src="images/icons8-password-25.png">
+          <input type="password" name="password" id="password" placeholder="Password" onkeydown="handleCostKeydown(event);">
+        </div>
+
+        <div>
+          <input type="submit" value="Login" class="login-button">
+        </div>
+
+        <div>
+          <input type="checkbox" id="remember-me" name="remember-me">
+          <label for="remember-me">Remember Me</label>
+        </div>
+
+      </form>
+
+      <a class="forgot-password" href="#">Forgot Password?</a>
+    </div>
+    
+  </main>
+
+  <a href="newuser.html" class="new-user-link">
+    <p class="new-user">New User? Register</p>
+  </a>
+  
+    
+  <footer class="footer">
+    <p>MRI Software - Secure Access Portal</p>
+  </footer>
+
+  <script src="/scripts/login.js"></script>
+</body>
+</html>
