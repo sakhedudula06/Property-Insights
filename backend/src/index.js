@@ -5,10 +5,12 @@ dotenv.config({
   path: "./.env",
 });
 
+const PORT = process.env.PORT || 8000;
+
 const startServer = async () => {
   try {
-    app.listen(process.env.PORT || 8000, () => {
-      console.log(`SERVER STARTS AT ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`SERVER STARTS AT ${PORT}`);
     });
   } catch (error) {
     console.error("failed to start server:", error);
