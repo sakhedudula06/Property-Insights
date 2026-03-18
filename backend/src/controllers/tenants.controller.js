@@ -29,7 +29,10 @@ export async function insertTenants(req, res) {
     }
 
     res.status(200).json(data);
-  } catch (error) {}
+  } catch (error) {
+    console.error("Unexpected failure:", err);
+    return res.status(500).json({ error: "Server error" });
+  }
 }
 
 

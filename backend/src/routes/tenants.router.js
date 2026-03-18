@@ -3,7 +3,7 @@ import { getAllTenants, insertTenants } from "../controllers/tenants.controller.
 
 const router = express.Router();
 
-router.route("/tenants").get(getAllTenants);
+router.route("/alltenants").get(getAllTenants);
 router.route("/insert").post(insertTenants);
 
 export default router;
