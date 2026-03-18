@@ -8,13 +8,12 @@ import Payments from './pages/Payments.jsx'
 import Reports from './pages/Reports.jsx'
 import Settings from './pages/Settings.jsx'
 import Tenants from './pages/Tenants.jsx'
-import toast from 'react-hot-toast'
+//import toast from 'react-hot-toast'
 
 
 const App = () => {
   return (
-    <div>
-      <button onClick={() => toast.success("Success")} className='text-red-500 p-4 bg-pink-300'>Click me</button>
+    <div data-theme="emarald">
       <Routes>
         <Route path='/dashboard' element ={<HomePage />} />
         <Route path='/forgetpass' element ={<ForgetPass />} />
