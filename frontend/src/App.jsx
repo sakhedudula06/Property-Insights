@@ -16,9 +16,9 @@ const App = () => {
     <div data-theme="emarald">
       <Routes>
         <Route path='/dashboard' element ={<HomePage />} />
-        <Route path='/forgetpass' element ={<ForgetPass />} />
-        <Route path='/' element ={<Index />} />
-        <Route path='/newuser' element={<NewUser />} />
+        <Route path='/passwordreset' element ={<ForgetPass />} />
+        <Route path='/login' element ={<Index />} />
+        <Route path='/register' element={<NewUser />} />
         <Route path='/payments' element={<Payments />} />
         <Route path='/reports' element={<Reports />} />
         <Route path='/settings' element={<Settings />} />
