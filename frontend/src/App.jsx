@@ -8,6 +8,7 @@ import Payments from './pages/Payments.jsx'
 import Reports from './pages/Reports.jsx'
 import Settings from './pages/Settings.jsx'
 import Tenants from './pages/Tenants.jsx'
+import Roles from './pages/Roles.jsx'
 //import toast from 'react-hot-toast'
 
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/reports' element={<Reports />} />
         <Route path='/settings' element={<Settings />} />
         <Route path='/tenants' element={<Tenants />} />
+        <Route path='/' element={<Roles />} />
       </Routes>
     </div>
   );

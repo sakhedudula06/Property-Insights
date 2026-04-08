@@ -6,7 +6,7 @@ import Menu from '../components/Menu.jsx'
 const HomePage = () => {
 
   return (
-    <div className='min-h-screen bg-[rgb(244,244,244)] h-[1000px]'>
+    <div className='min-h-screen bg-[rgb(244,244,244)]'>
       <Navbar />
       <div className='flex relative flex-row mt-10 content-center gap-20'>
         <Menu />
