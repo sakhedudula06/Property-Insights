@@ -3,6 +3,7 @@ import Login from '../components/Login.jsx'
 import { House } from 'lucide-react';
 
 const Index = () => {
+
   return (
     <div className='min-h-screen bg-[rgb(250,250,250)] grid grid-cols-2'>
       <div className='bg-[rgba(235,245,250,1)] p-16'>
