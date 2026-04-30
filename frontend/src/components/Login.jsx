@@ -23,8 +23,6 @@ function Login() {
         return;
       }
 
-
-
       const request = await api.post("/users/signin", {
         'email': emailValue,
         'password': passwordValue
@@ -37,12 +35,9 @@ function Login() {
       }
 
     } catch (error) {
-      if (error.response?.status === 401) {
-        toast.error("Invalid credentials")
-      } else {
-        toast.error("Sign in failed. Please try again.")
-      }
-      console.error('SignIn failed!', error);
+      const errorMsg = error.response?.data?.error || error.message || "Login failed";
+      toast.error(errorMsg);
+      console.error('Login failed!', error);
 
     }
   }
@@ -71,7 +66,7 @@ function Login() {
         <p className='text-2xl text-gray-500'>Sign in to your Property Insights account</p>
       </div>
 
-      <form onSubmit={handleSignIn}>
+      <form onSubmit={handleSignIn} className='mb-10'>
         <p className='font-bold text-xl mb-5'>Email Address</p>
         <div className='border-2 p-4 rounded-lg flex gap-7 mb-12'>
           <Mail />
@@ -85,15 +80,18 @@ function Login() {
           {React.createElement(icon, { className: 'cursor-pointer', onClick: handleShowPassword })}
         </div>
 
-        <div className='flex flex-row-reverse'>
-          <Link to={'/passwordreset'} className='justify-end text-blue-500 text-xl'>Forgot password?</Link>
-        </div>
-
-        <button type='submit' className='flex bg-secondary text-secondary-content gap-7 justify-center text-3xl items-center p-5 mt-14 rounded-lg w-full hover: '>
+        <button type='submit' className='flex bg-[rgb(55,124,251)] text-secondary-content gap-7 justify-center text-3xl items-center p-5 mt-14 rounded-lg w-full hover:shadow-2xl active:bg-[rgba(55,124,251,0.8)] transition duration-200 ease-in-out'>
           <LogIn />
           Sign In
         </button>
       </form>
+
+      <div>
+        <div></div>
+        <div className='flex justify-center text-xl'>
+          <p className='text-gray-500'>Don't have an account? <Link to={'/register'} className='text-blue-500 text-xl cursor-pointer'>Create account.</Link></p>
+        </div>
+      </div>
     </div>
   )
 }

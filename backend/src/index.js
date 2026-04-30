@@ -5,6 +5,7 @@ dotenv.config({
 });
 
 const PORT = process.env.PORT || 8000;
+console.log("Server started at", PORT)
 console.log("DB_URL:", process.env.DB_URL);
 console.log("public_anonkey:", process.env.SERVICE_ROLE_KEY); 
 
