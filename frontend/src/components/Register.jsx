@@ -35,7 +35,7 @@ function Register() {
 
       if (request.status === 200) {
         toast.success('Successfully');
-        navigate('/dashboard');
+        navigate('/login');
 
       } 
 
