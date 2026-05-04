@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router';
 import { Mail, Send, Clock, ShieldCheck  } from 'lucide-react'
 import Login from './Login.jsx';
 import { MdMarkEmailRead } from "react-icons/md";
+import lockImage from '../assets/ChatGPT Image Apr 23, 2026, 11_07_18 AM.png'
+
 
 function ForgotPassword() {
 
@@ -131,7 +133,7 @@ function ForgotPassword() {
   return (
     <div className='bg-white p-14 shadow-md rounded-xl' id='card'>
       <div className='flex flex-col justify-center mb-16'>
-        <img className='bg-transparent' src='/src/assets/ChatGPT Image Apr 23, 2026, 11_07_18 AM.png'></img>
+        <img className='bg-transparent' src={lockImage}></img>
         <div className='flex flex-col justify-center items-center gap-5'>
           <p className='text-4xl font-bold'>Forgot Password?</p>
           <p className='text-xl text-gray-400'>Enter your email address and we'll send you a link to reset your password.</p>

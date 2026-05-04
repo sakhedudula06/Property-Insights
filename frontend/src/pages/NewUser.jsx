@@ -1,13 +1,15 @@
 import React from 'react'
 import { House } from 'lucide-react';
 import Register from '../components/Register';
+import cityImage from '../assets/transparent.png'
+import logo from '../assets/MRI_Logo_transparent.svg'
 
 const NewUser = () => {
   return (
     <div className='min-h-screen bg-[rgb(250,250,250)] grid grid-cols-2'>
       <div className='bg-[rgba(235,245,250,1)] p-16'>
         <div className='mb-20'>
-          <img src='/src/assets/MRI_Logo_transparent.svg' className='w-48' />
+          <img src={logo} className='w-48' />
         </div>
         <div className='mb-5'>
           <div className='bg-sky-200 w-60 p-3 text-[#0d59b0] flex gap-5 rounded-lg mb-8'>
@@ -26,7 +28,7 @@ const NewUser = () => {
           </div>
         </div>
         <div>
-          <img className='h-[290px]' src='/src/assets/transparent.png' />
+          <img className='h-[290px]' src={cityImage} />
         </div>
 
       </div>

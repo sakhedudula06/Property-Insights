@@ -1,13 +1,15 @@
 import { Search } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router'
+// import cityImage from '../assets/transparent.png'
+import logo from '../assets/MRI_Logo_transparent.svg'
 
 const Navbar = () => {
   return (
     <header className='navbar bg-base-100 flex flex-row items-center justify-between px-7 py-5 sticky top-0 z-50'>
       <div className='flex-1 gap-x-24 gap-y-24'>
         <Link to={"/dashboard"}>
-          <img alt='logo' src='/src/assets/MRI_Software_logo.svg' className='w-48' />
+          <img alt='logo' src={logo} className='w-48' />
         </Link>
         <p className='text-2xl font-extrabold'>Tenant Payment Tracker</p>
       </div>
