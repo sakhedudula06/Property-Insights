@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { Eye, EyeOff, Lock, Mail, LogIn, User } from 'lucide-react'
 import { toast } from 'react-hot-toast'
 // import { createRoot } from 'react-dom/client'
@@ -30,7 +30,7 @@ function Register() {
           "data": {
             "name": nameValue
           },
-          "emailRedirectTo": 'https://property-insights-1.onrender.com/'
+          "emailRedirectTo": 'https://property-insights-1.onrender.com/dashboard'
         }
       });
 
@@ -141,6 +141,13 @@ function Register() {
           Submit
         </button>
       </form>
+
+      <div>
+        <div></div>
+        <div className='flex justify-center text-xl'>
+          <p className='text-gray-500'>Already have an account? <Link to={'/login'} className='text-blue-500 text-xl cursor-pointer'>Create account.</Link></p>
+        </div>
+      </div>
 
     </div>
   )
