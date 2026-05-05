@@ -10,6 +10,9 @@ export async function createUser(req, res) {
       options: {
         data: {
           name: name
+        },
+        options:{
+          emailRedirectTo: 'https://property-insights-1.onrender.com/login'
         }
       }
     });
@@ -57,7 +60,7 @@ export async function passwordReset(req, res) {
 
 
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: '/passwordreset',
+      redirectTo: 'https://property-insights-1.onrender.com/passwordreset',
     })
 
     if (error) {
