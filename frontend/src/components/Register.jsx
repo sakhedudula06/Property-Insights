@@ -8,6 +8,8 @@ import api from '../lib/axios.js';
 function Register() {
   const navigate = useNavigate();
 
+  const redirectURL = import.meta.env.NODE_ENV === 'production' ? 'https://property-insights-1.onrender.com/login' : 'http://localhost:5173/login';
+
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(Eye);
   const [nameValue, setNameValue] = useState('')
@@ -30,7 +32,7 @@ function Register() {
           "data": {
             "name": nameValue
           },
-          "emailRedirectTo": 'https://property-insights-1.onrender.com/dashboard'
+          "emailRedirectTo": redirectURL
         }
       });
 
