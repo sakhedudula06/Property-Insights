@@ -29,15 +29,35 @@ function Register() {
         "options": {
           "data": {
             "name": nameValue
-          }
+          },
+          "emailRedirectTo": 'https://property-insights-1.onrender.com/'
         }
       });
 
       if (request.status === 200) {
-        toast.success('Successfully');
-        navigate('/login');
+        toast.success('Account created! Check your email to verify your account.');
 
-      } 
+        setTimeout(() => {
+          navigate('/login');
+        }, 2000);
+
+        // const loginResponse = await api.post("/users/signin", {
+        //   'email': emailValue,
+        //   'password': passwordValue
+        // });
+
+        // console.log('Login Response:', loginResponse);
+        // console.log('Token:', loginResponse.data?.data?.session?.access_token);
+
+        // if (loginResponse.data?.data?.session?.access_token) {
+        //   localStorage.setItem('token', loginResponse.data.data.session.access_token);
+        //   toast.success('Account created! Redirecting...');
+        //   navigate('/dashboard');
+        // }else{
+        //   console.error('No token in response');
+        // }
+
+      }
 
     } catch (error) {
       const errorMsg = error.response?.data?.error || error.message || "Registration failed";

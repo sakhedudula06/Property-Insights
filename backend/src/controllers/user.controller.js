@@ -11,9 +11,7 @@ export async function createUser(req, res) {
         data: {
           name: name
         },
-        options:{
-          emailRedirectTo: 'https://property-insights-1.onrender.com/login'
-        }
+        emailRedirectTo: 'https://property-insights-1.onrender.com/login',
       }
     });
 

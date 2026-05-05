@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from '../components/Login.jsx'
 import ForgotPassword from '../components/ForgotPassword.jsx';
 import { House, ArrowLeft, CircleQuestionMark  } from 'lucide-react';
@@ -6,8 +6,19 @@ import Loading from '../utils/Loading.jsx';
 import { useState } from 'react';
 import cityImage from '../assets/transparent.png'
 import logo from '../assets/MRI_Logo_transparent.svg'
+import { useSearchParams } from 'react-router';
+import { toast } from 'react-hot-toast'
 
 const Index = () => {
+
+  const [searchParams] = useSearchParams();
+  
+  useEffect(() => {
+    const token = searchParams.get('token');
+    if (token) {
+      toast.success('Email verified! You can now log in.');
+    }
+  }, [searchParams]);
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [loginIcon, setLoginIcon] = useState(CircleQuestionMark);
@@ -50,18 +61,10 @@ const Index = () => {
     <div className='min-h-screen bg-[rgb(250,250,250)] grid grid-cols-2'>
       <div className='bg-[rgba(235,245,250,1)] p-16'>
         <div className='mb-20'>
-          <img src={logo} className='w-48' />
+          <img src={logo} className='w-3/5' />
         </div>
         <div className='mb-5'>
-          <div className='bg-sky-200 w-60 p-3 text-[#0d59b0] flex gap-5 rounded-lg mb-8'>
-            <House />
-            <p className='font-bold'>PROPERTY INSIGHTS</p>
-          </div>
-
-          <div className='mb-8'>
-            <p className='font-bold text-[#183450] text-7xl'>Smarter Data.</p>
-            <p className='font-bold text-[#183450] text-7xl'>Better Decisions.</p>
-          </div>
+          
 
           <div className='text-gray-500 text-3xl'>
             <p>Sign in to access powerful insights and</p>
