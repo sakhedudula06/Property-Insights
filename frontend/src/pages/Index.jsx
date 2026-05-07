@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Login from '../components/Login.jsx'
 import ForgotPassword from '../components/ForgotPassword.jsx';
 import { House, ArrowLeft, CircleQuestionMark  } from 'lucide-react';
@@ -6,19 +6,8 @@ import Loading from '../utils/Loading.jsx';
 import { useState } from 'react';
 import cityImage from '../assets/transparent.png'
 import logo from '../assets/MRI_Logo_transparent.svg'
-import { useSearchParams } from 'react-router';
-import { toast } from 'react-hot-toast'
 
 const Index = () => {
-
-  const [searchParams] = useSearchParams();
-  
-  useEffect(() => {
-    const token = searchParams.get('token');
-    if (token) {
-      toast.success('Email verified! You can now log in.');
-    }
-  }, [searchParams]);
 
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [loginIcon, setLoginIcon] = useState(CircleQuestionMark);

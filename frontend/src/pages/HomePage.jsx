@@ -9,13 +9,10 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('token');
-    console.log('Token:', isAuthenticated);
+    const isAuthenticated = localStorage.getItem('access_token');
 
     if (isAuthenticated == null) {
       navigate('/login');
-    } else {
-      console.log('User is authenticated');
     }
   }, []);
 

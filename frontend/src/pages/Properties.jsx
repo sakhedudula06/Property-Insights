@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import Menu from '../components/Menu.jsx'
 
-const Settings = () => {
+
+function Properties() {
   return (
     <div className='min-h-screen'>
       <Navbar />
@@ -46,9 +47,10 @@ const Settings = () => {
           </table>
         </div>
       </div>
+
       <Footer />
     </div>
   )
 }
 
-export default Settings
+export default Properties

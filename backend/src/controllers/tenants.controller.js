@@ -2,7 +2,7 @@ import supabase from "../config/supabase-js.js";
 
 export async function getAllTenants(_, res) {
   try {
-    const { data, error } = await supabase.from("tenants").select();
+    const { data, error } = await supabase.from("tenants").select("*");
 
     if (error) {
       console.error("Supabase error:", error);

@@ -147,7 +147,8 @@ function Register() {
       <div>
         <div></div>
         <div className='flex justify-center text-xl'>
-          <p className='text-gray-500'>Already have an account? <Link to={'/login'} className='text-blue-500 text-xl cursor-pointer'>Create account.</Link></p>
+          <p className='text-gray-500'>Already have an account? <Link to={'/login'} className='text-blue-500 text-xl cursor-pointer'>Log in.</Link>
+          </p>
         </div>
       </div>
 

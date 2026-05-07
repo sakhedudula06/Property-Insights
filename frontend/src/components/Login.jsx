@@ -28,10 +28,13 @@ function Login() {
         'password': passwordValue
       })
 
-      if (request.status === 200) {
+      if (request.status === 200 && request.data.data.session) {
+
+        const token = request.data.data.session.access_token;
+        
+        localStorage.setItem('access_token',token);
         toast.success('Successfully');
         navigate('/dashboard');
-
       }
 
     } catch (error) {
