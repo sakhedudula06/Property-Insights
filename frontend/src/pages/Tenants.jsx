@@ -21,9 +21,8 @@ const Tenants = () => {
 
   useEffect(() => {
     api.get('/tenants/')
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
+      .then(res => {
+        setData(res.data);
         setIsLoading(false);
       }).catch(error =>{
         console.error('Error fetching properties:', error
@@ -43,9 +42,8 @@ const Tenants = () => {
 
   function getPropData() {
     api.get('/properties/')
-      .then(res => res.json())
-      .then(data => {
-        setPropData(data);
+      .then(res => {
+        setPropData(res.data);
       })
       .catch(error => {console.error('Error fetching properties:', error
       ), toast.error(error)});

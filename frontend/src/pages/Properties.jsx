@@ -14,9 +14,8 @@ function Properties() {
 
   useEffect(() => {
     api.get('/properties/')
-      .then(res => res.json())
-      .then(data => {
-        setData(data);
+      .then(res => {
+        setData(res.data);
         setIsLoading(false);
       }).catch(error =>{
               console.error('Error fetching properties:', error
