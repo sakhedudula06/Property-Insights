@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import Menu from '../components/Menu.jsx'
 import { useNavigate } from 'react-router'
+import toast from 'react-hot-toast';
+import api from '../lib/axios.js';
 
 
 function Properties() {
@@ -11,12 +13,15 @@ function Properties() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/v1/properties/')
+    api.get('/properties/')
       .then(res => res.json())
       .then(data => {
         setData(data);
         setIsLoading(false);
-      })
+      }).catch(error =>{
+              console.error('Error fetching properties:', error
+            ), toast.error(error)
+            })
   }, [])
 
   const navigate = useNavigate();

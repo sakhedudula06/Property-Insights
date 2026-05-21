@@ -8,6 +8,7 @@ import { toast } from 'react-hot-toast'
 import api from '../lib/axios.js';
 import { useNavigate } from 'react-router'
 
+
 const Tenants = () => {
 
   const [isLoading, setIsLoading] = useState(true);
@@ -19,12 +20,15 @@ const Tenants = () => {
   const [selectedProp, setSelectedProp] = useState('')
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/v1/tenants/')
+    api.get('/tenants/')
       .then(res => res.json())
       .then(data => {
         setData(data);
         setIsLoading(false);
-      });
+      }).catch(error =>{
+        console.error('Error fetching properties:', error
+      ), toast.error(error)
+      })
   }, []);
 
   const navigate = useNavigate();
@@ -38,11 +42,13 @@ const Tenants = () => {
     }, [navigate]);
 
   function getPropData() {
-    fetch('http://localhost:4000/api/v1/properties/')
+    api.get('/properties/')
       .then(res => res.json())
       .then(data => {
         setPropData(data);
       })
+      .catch(error => {console.error('Error fetching properties:', error
+      ), toast.error(error)});
   }
 
   const handleSelectedProp = (event) => {
