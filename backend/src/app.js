@@ -8,18 +8,20 @@ import path from 'path'
 
 const app = express();
 
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors({
-    origin: 'http://localhost:5173'
-  }));
-}
+const allowedOrigins = process.env.NODE_ENV === "production"
+  ? process.env.FRONTEND_URL || 'https://property-insights-1.onrender.com'
+  : 'http://localhost:5173'
+
+app.use(cors({
+  origin: allowedOrigins
+}));
 
 
 const __dirname = path.resolve()
 
 app.use(express.json());
 
-app.use("/api/v1/properties",propertiesRouter)
+app.use("/api/v1/properties", propertiesRouter)
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", tenantsRouter);
 
