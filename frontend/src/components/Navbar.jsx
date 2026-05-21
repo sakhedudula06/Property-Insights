@@ -13,6 +13,7 @@ const Navbar = () => {
     const isAuthenticated = sessionStorage.getItem('access_token');
 
     if (isAuthenticated) {
+      localStorage.clear();
       sessionStorage.clear();
       navigate('/login');
     }
