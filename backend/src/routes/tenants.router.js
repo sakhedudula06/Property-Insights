@@ -3,7 +3,7 @@ import { deleteATenant, getAllTenants, insertTenants } from "../controllers/tena
 
 const router = express.Router();
 
-router.route("/").get(getAllTenants);
+router.route("").get(getAllTenants);
 router.route("/insert").post(insertTenants);
 router.route("/delete/:name").delete(deleteATenant);
 

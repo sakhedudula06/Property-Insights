@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import Menu from '../components/Menu.jsx'
+import { useNavigate } from 'react-router'
 
 const Payments = () => {
+
+  const navigate = useNavigate();
+  
+    useEffect(() => {
+      const isAuthenticated = sessionStorage.getItem('access_token');
+  
+      if (isAuthenticated == null) {
+        navigate('/login');
+      }
+    }, [navigate]);
+
+
   return (
     <div className='min-h-screen'>
       <Navbar />

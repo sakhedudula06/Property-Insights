@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import userRouter from './routes/user.router.js';
 import tenantsRouter from './routes/tenants.router.js';
+import propertiesRouter from './routes/properties.router.js'
 import path from 'path'
 
 
@@ -18,7 +19,7 @@ const __dirname = path.resolve()
 
 app.use(express.json());
 
-
+app.use("/api/v1/properties",propertiesRouter)
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", tenantsRouter);
 

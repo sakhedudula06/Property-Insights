@@ -9,12 +9,12 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('access_token');
+    const isAuthenticated = sessionStorage.getItem('access_token');
 
     if (isAuthenticated == null) {
       navigate('/login');
     }
-  }, []);
+  }, [navigate]);
 
   // function checkIfAuthenticated() {
   //   const isAuthenticated = localStorage.getItem('token');

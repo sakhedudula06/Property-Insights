@@ -12,7 +12,7 @@ function Register() {
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(Eye);
-  const [nameValue, setNameValue] = useState('')
+  const [nameValue, setNameValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
 

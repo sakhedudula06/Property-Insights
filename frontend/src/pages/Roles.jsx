@@ -37,12 +37,7 @@ function Roles() {
               Welcome to Property Insights.
             </p>
             <ul className="menu bg-neutral rounded-box">
-              <li>
-                <a href='#'>
-                  <House />
-                  Tenant
-                </a>
-              </li>
+              
               <li>
                 <a href='/login' onClick={Loading}>
                   <UserStar />

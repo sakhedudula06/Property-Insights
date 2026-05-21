@@ -31,8 +31,10 @@ function Login() {
       if (request.status === 200 && request.data.data.session) {
 
         const token = request.data.data.session.access_token;
+        const refreshToken = request.data.data.session.refresh_token;
         
-        localStorage.setItem('access_token',token);
+        sessionStorage.setItem('access_token',token);
+        sessionStorage.setItem('refresh_token', refreshToken);
         toast.success('Successfully');
         navigate('/dashboard');
       }
