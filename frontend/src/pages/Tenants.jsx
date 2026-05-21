@@ -20,7 +20,7 @@ const Tenants = () => {
   const [selectedProp, setSelectedProp] = useState('')
 
   useEffect(() => {
-    api.get('/tenants/')
+    api.get('/tenants')
       .then(res => {
         setData(res.data);
         setIsLoading(false);
@@ -41,7 +41,7 @@ const Tenants = () => {
     }, [navigate]);
 
   function getPropData() {
-    api.get('/properties/')
+    api.get('/properties')
       .then(res => {
         setPropData(res.data);
       })

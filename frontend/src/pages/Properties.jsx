@@ -13,7 +13,7 @@ function Properties() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    api.get('/properties/')
+    api.get('/properties')
       .then(res => {
         setData(res.data);
         setIsLoading(false);
