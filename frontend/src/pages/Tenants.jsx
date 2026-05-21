@@ -19,34 +19,37 @@ const Tenants = () => {
   const [propData, setPropData] = useState(null);
   const [selectedProp, setSelectedProp] = useState('')
 
-  useEffect(() => {
-    api.get('/tenants')
-      .then(res => {
-        setData(res.data);
-        setIsLoading(false);
-      }).catch(error =>{
-        console.error('Error fetching properties:', error
-      ), toast.error(error)
-      })
-  }, []);
-
   const navigate = useNavigate();
-  
-    useEffect(() => {
-      const isAuthenticated = sessionStorage.getItem('access_token');
-  
-      if (isAuthenticated == null) {
-        navigate('/login');
-      }
-    }, [navigate]);
+
+  useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem('access_token');
+
+    if (isAuthenticated == null) {
+      navigate('/login');
+    } else {
+      api.get('/tenants')
+        .then(res => {
+          setData(res.data);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching tenants:', error);
+          toast.error(error.message);
+        });
+    }
+  }, [navigate]);
+
+
 
   function getPropData() {
     api.get('/properties')
       .then(res => {
         setPropData(res.data);
       })
-      .catch(error => {console.error('Error fetching properties:', error
-      ), toast.error(error)});
+      .catch(error => {
+        console.error('Error fetching properties:', error
+        ), toast.error(error)
+      });
   }
 
   const handleSelectedProp = (event) => {
@@ -77,7 +80,7 @@ const Tenants = () => {
     try {
       e.preventDefault();
 
-      if(propData?.is_occupied === true){
+      if (propData?.is_occupied === true) {
         toast.error('Property is occupied');
       }
 

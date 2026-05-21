@@ -17,21 +17,21 @@ function Properties() {
       .then(res => {
         setData(res.data);
         setIsLoading(false);
-      }).catch(error =>{
-              console.error('Error fetching properties:', error
-            ), toast.error(error)
-            })
+      }).catch(error => {
+        console.error('Error fetching tenants:', error);
+        toast.error(error.message);
+      })
   }, [])
 
   const navigate = useNavigate();
-  
-    useEffect(() => {
-      const isAuthenticated = sessionStorage.getItem('access_token');
-  
-      if (isAuthenticated == null) {
-        navigate('/login');
-      }
-    }, [navigate]);
+
+  useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem('access_token');
+
+    if (isAuthenticated == null) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   if (isLoading) {
     return (<div className='min-h-screen'>
@@ -57,28 +57,28 @@ function Properties() {
         <Menu />
         <div className="overflow-x-auto">
           <table className="table w-full text-2xl">
-        
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Tenant Name</th>
-                  <th>Unit</th>
-                  <th>Status</th>
+
+            <thead>
+              <tr>
+                <th></th>
+                <th>Tenant Name</th>
+                <th>Unit</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            {data && data.map(property => (
+
+              <tbody key={property.id}>
+                <tr className="hover">
+                  <th>{property.id}</th>
+                  <td>{property.tenant_id?.tenant_name}</td>
+                  <td>{property.name}</td>
+                  <td>{property.is_occupied ? 'Occupied' : 'Vacant'}</td>
                 </tr>
-              </thead>
-              {data && data.map(property => (
-
-                <tbody key={property.id}>
-                  <tr className="hover">
-                    <th>{property.id}</th>
-                    <td>{property.tenant_id?.tenant_name}</td>
-                    <td>{property.name}</td>
-                    <td>{property.is_occupied ? 'Occupied' : 'Vacant'}</td>
-                  </tr>
-                </tbody>
+              </tbody>
 
 
-              ))}
+            ))}
           </table>
         </div>
       </div>

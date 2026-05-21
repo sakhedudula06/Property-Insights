@@ -6,16 +6,15 @@ const api = axios.create({
   baseURL : BASE_URL
 })
 
-axios.interceptors.request.use((config) =>{
+api.interceptors.request.use((config) =>{  // ← CORRECT
   const token = sessionStorage.getItem('access_token');
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-
   return config;
 });
 
-axios.interceptors.response.use((response) =>{
+api.interceptors.response.use((response) =>{  // ← Also change this
   return response;
 }, async(error) =>{
   const originalRequest = error.config;
