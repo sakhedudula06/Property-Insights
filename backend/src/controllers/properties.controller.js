@@ -4,7 +4,7 @@ export async function getAllProperties(_, res) {
   try {
     const {data, error} = await supabase
       .from("properties")
-      .select("*, tenant_id(tenant_name)");
+      .select("*, tenant_id(tenant_name)").order('id', { ascending: true});
 
     if (error) {
       console.error("Supabase error:", error);

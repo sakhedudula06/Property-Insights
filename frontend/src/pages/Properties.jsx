@@ -56,7 +56,7 @@ function Properties() {
       <div className='flex relative flex-row mt-10 content-center gap-20'>
         <Menu />
         <div className="overflow-x-auto">
-          <table className="table w-full text-2xl">
+          <table className="table w-full text-xl">
 
             <thead>
               <tr>

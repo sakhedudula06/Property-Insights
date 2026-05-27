@@ -88,7 +88,7 @@ const Tenants = () => {
         'tenant_name': nameValue,
         'email': emailValue,
         'contact': contactValue,
-        'property_id': selectedProp,
+        'property_id': Number(selectedProp),
         'amount_due': 0
       })
 
@@ -112,7 +112,7 @@ const Tenants = () => {
         <div className="overflow-x-auto" id='root'>
 
           {/* head */}
-          <table className="table w-full text-lg">
+          <table className="table w-full text-xl">
 
             <thead>
               <tr>
@@ -174,12 +174,13 @@ const Tenants = () => {
                     </input>
                   </div>
 
+                  <p className='font-bold text-xl mb-5A'>Property</p>
                   <select className="select w-full max-w-max" value={selectedProp} onChange={handleSelectedProp}>
 
-                    <option disabled selected>Properties</option>
+                    <option selected>Properties</option>
                     {propData && propData.map(property => (
 
-                      <option key={property.id} value={[property.id]}>
+                      <option key={property.id} value={property.id}>
                         {`${property.name} - ${property.is_occupied ? 'Occupied' : 'Vacant'}`}
                       </option>
                     ))}

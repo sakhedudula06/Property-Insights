@@ -3,6 +3,7 @@ import cors from 'cors'
 import userRouter from './routes/user.router.js';
 import tenantsRouter from './routes/tenants.router.js';
 import propertiesRouter from './routes/properties.router.js'
+import paymentsRouter from './routes/payments.router.js'
 import path from 'path'
 
 
@@ -20,10 +21,15 @@ app.use(cors({
 const __dirname = path.resolve()
 
 app.use(express.json());
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 app.use("/api/v1/properties", propertiesRouter)
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", tenantsRouter);
+app.use("/api/v1/payments", paymentsRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")))

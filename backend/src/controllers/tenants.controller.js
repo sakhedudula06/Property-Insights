@@ -2,7 +2,7 @@ import supabase from "../config/supabase-js.js";
 
 export async function getAllTenants(_, res) {
   try {
-    const { data, error } = await supabase.from("tenants").select("*, property_id(name)");
+    const { data, error } = await supabase.from("tenants").select("*, property_id(name)").order('id', { ascending: true});
 
     if (error) {
       console.error("Supabase error:", error);
@@ -28,33 +28,8 @@ export async function insertTenants(req, res) {
       return res.status(502).json({ error: tenantError.message });
     }
 
-    const tenantId = tenantData?.[0]?.id;
-
-    if (!tenantId) {
-      return res.status(500).json({ error: "Tenant id not returned" });
-    }
-
-    const leaseRecord = {
-      tenant_id: tenantId,
-      unit: req.body.unit
-    };
-
-
-
-    const { data: leaseData, error: leaseError } = await supabase
-      .from("leases")
-      .insert(leaseRecord)
-      .select();
-
-    if (leaseError) {
-      console.error("Supabase error:", leaseError);
-      return res.status(502).json({ error: leaseError.message });
-    }
-
-
     res.status(200).json({
-      tenant: tenantData[0],
-      lease: leaseData[0]
+      tenant: tenantData?.[0]
     });
   } catch (error) {
     console.error("Unexpected failure:", error);
