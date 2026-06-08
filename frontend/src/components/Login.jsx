@@ -13,12 +13,13 @@ function Login() {
   const [icon, setIcon] = useState(Eye);
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSignIn(e) {
     try {
       e.preventDefault();
 
-      if(!emailValue.trim() || !passwordValue.trim()){
+      if (!emailValue.trim() || !passwordValue.trim()) {
         toast.error("All fields are required");
         return;
       }
@@ -28,12 +29,14 @@ function Login() {
         'password': passwordValue
       })
 
+      setIsSubmitting(true);
+
       if (request.status === 200 && request.data.data.session) {
 
         const token = request.data.data.session.access_token;
         const refreshToken = request.data.data.session.refresh_token;
-        
-        sessionStorage.setItem('access_token',token);
+
+        sessionStorage.setItem('access_token', token);
         sessionStorage.setItem('refresh_token', refreshToken);
         toast.success('Successfully');
         navigate('/dashboard');
@@ -44,6 +47,8 @@ function Login() {
       toast.error(errorMsg);
       console.error('Login failed!', error);
 
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -63,6 +68,13 @@ function Login() {
     }
   };
 
+  // if (isLoading) {
+  //   return (<div className='min-h-screen'>
+  //     <div className='flex relative flex-row mt-10 content-center gap-20'>
+  //       <span className="loading loading-dots loading-lg"></span>
+  //     </div>
+  //   </div>);
+  // }
 
   return (
     <div className='bg-white p-14 shadow-md rounded-xl'>
@@ -85,9 +97,22 @@ function Login() {
           {React.createElement(icon, { className: 'cursor-pointer', onClick: handleShowPassword })}
         </div>
 
-        <button type='submit' className='flex bg-[rgb(55,124,251)] text-secondary-content gap-7 justify-center text-3xl items-center p-5 mt-14 rounded-lg w-full hover:shadow-2xl active:bg-[rgba(55,124,251,0.8)] transition duration-200 ease-in-out'>
-          <LogIn />
-          Sign In
+        <button
+          type='submit'
+          disabled={isSubmitting}
+          className='flex bg-[rgb(55,124,251)] text-secondary-content gap-7 justify-center text-3xl items-center p-5 mt-14 rounded-lg w-full hover:shadow-2xl active:bg-[rgba(55,124,251,0.8)] transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed'
+        >
+          {isSubmitting ? (
+            <>
+              <span className="loading loading-spinner loading-sm"></span>
+              Signing in...
+            </>
+          ) : (
+            <>
+              <LogIn />
+              Sign In
+            </>
+          )}
         </button>
       </form>
 

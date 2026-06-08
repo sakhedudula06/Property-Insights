@@ -3,20 +3,13 @@ import React from 'react'
 import { Link } from 'react-router'
 // import cityImage from '../assets/transparent.png'
 import logo from '../assets/MRI_Logo_transparent.svg'
-import { useNavigate } from 'react-router'
 
 const Navbar = () => {
 
-  const navigate = useNavigate();
-
   const handleLogout = () => {
-    const isAuthenticated = sessionStorage.getItem('access_token');
-
-    if (isAuthenticated) {
-      localStorage.clear();
-      sessionStorage.clear();
-      navigate('/login');
-    }
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.href = '/login';
   }
 
 

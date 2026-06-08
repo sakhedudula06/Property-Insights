@@ -95,13 +95,17 @@ const Reports = () => {
             <p>Payments</p>
             <div>
               <div>
-                <Line
+
+                {paymentsData && paymentsData.map(paymentsData =>(
+                  <Line
                   data={
                     {
                       labels: []
                     }
                   }
                 />
+                ))}
+                
               </div>
               <div></div>
               <div></div>

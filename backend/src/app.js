@@ -5,6 +5,7 @@ import tenantsRouter from './routes/tenants.router.js';
 import propertiesRouter from './routes/properties.router.js'
 import paymentsRouter from './routes/payments.router.js'
 import path from 'path'
+import leasesRouter from './routes/leases.router.js'
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api/v1/leases", leasesRouter)
 app.use("/api/v1/properties", propertiesRouter)
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", tenantsRouter);
