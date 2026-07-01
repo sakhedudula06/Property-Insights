@@ -7,7 +7,7 @@ const router = express.Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/', getAllLeases);
-router.post('create', createALease);
+router.post('/create', createALease);
 router.post("/upload", upload.single("file"), uploadALease);
 
 

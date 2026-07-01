@@ -71,8 +71,8 @@ function Properties() {
               <tbody key={property.id}>
                 <tr className="hover">
                   <th>{property.id}</th>
-                  <td>{property.tenant_id?.tenant_name}</td>
                   <td>{property.name}</td>
+                  <td>{property.tenant_id?.tenant_name}</td>
                   <td>{property.is_occupied ? 'Occupied' : 'Vacant'}</td>
                 </tr>
               </tbody>

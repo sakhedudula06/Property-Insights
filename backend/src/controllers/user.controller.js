@@ -140,7 +140,7 @@ export async function updateUser(req, res) {
   }
 }
 
-export async function refreshToken(params) {
+export async function refreshToken(req, res) {
   try {
     const { refreshToken } = req.body;
 
