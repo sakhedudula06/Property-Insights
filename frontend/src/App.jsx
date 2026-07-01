@@ -9,6 +9,7 @@ import Reports from './pages/Reports.jsx'
 import Settings from './pages/Settings.jsx'
 import Tenants from './pages/Tenants.jsx'
 import Roles from './pages/Roles.jsx'
+import Properties from './pages/Properties.jsx'
 //import toast from 'react-hot-toast'
 
 
@@ -16,14 +17,15 @@ const App = () => {
   return (
     <div data-theme="emarald">
       <Routes>
+        <Route path='/dashboard/properties' element={<Properties />} />
         <Route path='/dashboard' element ={<HomePage />} />
         <Route path='/passwordreset' element ={<ForgetPass />} />
         <Route path='/login' element ={<Index />} />
         <Route path='/register' element={<NewUser />} />
-        <Route path='/payments' element={<Payments />} />
-        <Route path='/reports' element={<Reports />} />
-        <Route path='/settings' element={<Settings />} />
-        <Route path='/tenants' element={<Tenants />} />
+        <Route path='/dashboard/payments' element={<Payments />} />
+        <Route path='/dashboard/reports' element={<Reports />} />
+        <Route path='/dashboard/settings' element={<Settings />} />
+        <Route path='/dashboard/tenants' element={<Tenants />} />
         <Route path='/' element={<Roles />} />
       </Routes>
     </div>

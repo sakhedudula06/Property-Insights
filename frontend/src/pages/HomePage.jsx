@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import Menu from '../components/Menu.jsx'
+import { useNavigate } from 'react-router'
 
 const HomePage = () => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem('access_token');
+
+    if (isAuthenticated == null) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
+  // function checkIfAuthenticated() {
+  //   const isAuthenticated = localStorage.getItem('token');
+
+  //   if (isAuthenticated == null) {
+  //     navigate('/login');
+  //   }else{
+  //     console.log('User is authenticated');
+  //   }
+  // }
+
+  // checkIfAuthenticated();
 
   return (
     <div className='min-h-screen bg-[rgb(244,244,244)]'>

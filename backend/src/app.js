@@ -2,29 +2,40 @@ import express from 'express'
 import cors from 'cors'
 import userRouter from './routes/user.router.js';
 import tenantsRouter from './routes/tenants.router.js';
+import propertiesRouter from './routes/properties.router.js'
+import paymentsRouter from './routes/payments.router.js'
 import path from 'path'
+import leasesRouter from './routes/leases.router.js'
 
 
 const app = express();
 
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors({
-    origin: 'http://localhost:5173'
-  }));
-}
+const allowedOrigins = process.env.NODE_ENV === "production"
+  ? process.env.FRONTEND_URL || 'https://property-insights-1.onrender.com'
+  : 'http://localhost:5173'
+
+app.use(cors({
+  origin: allowedOrigins
+}));
 
 
 const __dirname = path.resolve()
 
 app.use(express.json());
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
-
+app.use("/api/v1/leases", leasesRouter)
+app.use("/api/v1/properties", propertiesRouter)
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tenants", tenantsRouter);
+app.use("/api/v1/payments", paymentsRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")))
-  app.get('*', (req, res) => {
+  app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   })
 }
